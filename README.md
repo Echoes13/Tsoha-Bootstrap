@@ -1,10 +1,9 @@
-# Tietokantasovelluksen esittelysivu
+# Tietokantasovellus - PokémonGO-tietokanta
+Linkit:
 
-Yleisiä linkkejä:
+* [Linkki sovellukseen](http://vupavupa.users.cs.helsinki.fi/PokemonGO/)
+* [Linkki dokumentaatioon](https://github.com/Echoes13/Tsoha-Bootstrap/blob/master/doc/dokumentaatio.pdf)
 
-* [Linkki sovellukseeni](https://www.cs.helsinki.fi)
-* [Linkki dokumentaatiooni](https://www.github.com)
+## Työaiheen kuvaus
 
-## Työn aihe
-
-Laita tähän aihekuvaus tai [linkki valmiiseen aiheeseen](http://advancedkittenry.github.io/suunnittelu_ja_tyoymparisto/aiheet/Pokemon-kanta.html) 
+Aiheenani on Pokémon GO-peliin liittyvä tietokanta. Tietokanta seuraa melko pitkälti [Pokémon-tietokannan](http://advancedkittenry.github.io/suunnittelu_ja_tyoymparisto/aiheet/Pokemon-kanta.html) kuvausta, mutta pokémoneille annetaan eri attribuutit. Sovellukseen lisätään myös erillinen Pokédex josta kaikki voivat hakea tietoa eri pokémoneista.
