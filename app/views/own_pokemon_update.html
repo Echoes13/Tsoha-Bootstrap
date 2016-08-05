@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Muokkaa pokemonia Pulla</h1>
+
+  <form>
+    <div class="form-group">
+      <label>Nimi</label>
+      <input type="text" class="form-control" value="Pallero">
+    </div>
+    <div class="form-group">
+      <label>Pokémon</label>
+      <select class="form-control">
+        <option>Jigglypuff</option>
+        <option>Wigglytuff</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>CP</label>
+      <input type="text" class="form-control" value="265">
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Tallenna</button>
+    </div>
+  </form>
+{% endblock %}

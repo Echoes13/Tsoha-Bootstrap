@@ -8,3 +8,95 @@
   max-width: 1200px;
   margin: 0px auto;
 }
+
+.btn-normal { 
+  color: #ffffff; 
+  background-color: #DBDBDB; 
+  border-color: #000000; 
+} 
+ 
+.btn-normal:hover, 
+.btn-normal:focus, 
+.btn-normal:active, 
+.btn-normal.active, 
+.open .dropdown-toggle.btn-normal { 
+  color: #ffffff; 
+  background-color: #C4C4C4; 
+  border-color: #000000; 
+} 
+ 
+.btn-normal:active, 
+.btn-normal.active, 
+.open .dropdown-toggle.btn-normal { 
+  background-image: none; 
+} 
+ 
+.btn-normal.disabled, 
+.btn-normal[disabled], 
+fieldset[disabled] .btn-normal, 
+.btn-normal.disabled:hover, 
+.btn-normal[disabled]:hover, 
+fieldset[disabled] .btn-normal:hover, 
+.btn-normal.disabled:focus, 
+.btn-normal[disabled]:focus, 
+fieldset[disabled] .btn-normal:focus, 
+.btn-normal.disabled:active, 
+.btn-normal[disabled]:active, 
+fieldset[disabled] .btn-normal:active, 
+.btn-normal.disabled.active, 
+.btn-normal[disabled].active, 
+fieldset[disabled] .btn-normal.active { 
+  background-color: #DBDBDB; 
+  border-color: #000000; 
+} 
+ 
+.btn-normal .badge { 
+  color: #DBDBDB; 
+  background-color: #ffffff; 
+}
+
+.btn-fairy { 
+  color: #ffffff; 
+  background-color: #F7A3D5; 
+  border-color: #000000; 
+} 
+ 
+.btn-fairy:hover, 
+.btn-fairy:focus, 
+.btn-fairy:active, 
+.btn-fairy.active, 
+.open .dropdown-toggle.btn-fairy { 
+  color: #ffffff; 
+  background-color: #FF96D5; 
+  border-color: #000000; 
+} 
+ 
+.btn-fairy:active, 
+.btn-fairy.active, 
+.open .dropdown-toggle.btn-fairy { 
+  background-image: none; 
+} 
+ 
+.btn-fairy.disabled, 
+.btn-fairy[disabled], 
+fieldset[disabled] .btn-fairy, 
+.btn-fairy.disabled:hover, 
+.btn-fairy[disabled]:hover, 
+fieldset[disabled] .btn-fairy:hover, 
+.btn-fairy.disabled:focus, 
+.btn-fairy[disabled]:focus, 
+fieldset[disabled] .btn-fairy:focus, 
+.btn-fairy.disabled:active, 
+.btn-fairy[disabled]:active, 
+fieldset[disabled] .btn-fairy:active, 
+.btn-fairy.disabled.active, 
+.btn-fairy[disabled].active, 
+fieldset[disabled] .btn-fairy.active { 
+  background-color: #F7A3D5; 
+  border-color: #000000; 
+} 
+ 
+.btn-fairy .badge { 
+  color: #F7A3D5; 
+  background-color: #ffffff; 
+}

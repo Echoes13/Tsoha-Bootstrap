@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Pokédex</h1>
+
+  <p>
+    <a href="#" class="btn btn-success">Lisää pokémon</a>
+  </p>
+
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>Numero</th>
+        <th>Nimi</th>
+        <th>Tyyppi</th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <!-- Listataan pokémonit tähän -->
+      <tr>
+        <td>#039</td>
+        <td><a href="#">Jigglypuff</a></td>
+        <th>
+        <a class="btn btn-normal btn-xs" href="#">Normal</a>
+        <a class="btn btn-fairy btn-xs" href="#">Fairy</a>
+        </th>
+        <th><a class="btn btn-default btn-sm" href="#">Muokkaa</a></th>
+      </tr>
+    </tbody>
+  </table>
+{% endblock %}

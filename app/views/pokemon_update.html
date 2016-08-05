@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Muokkaa pokemonia #039 Jigglypuff</h1>
+
+  <form>
+    <div class="form-group">
+      <label>Nimi</label>
+      <input type="text" class="form-control" value="Jigglypuff">
+    </div>
+    
+    <div class="form-group">
+      <label>Tyypit</label>
+      <select class="form-control">
+        <option>Normal</option>
+        <option>Fairy</option>
+      </select>
+      <select class="form-control">
+        <option>None</option>
+        <option>Normal</option>
+        <option>Fairy</option>
+      </select>
+    </div>
+   
+    <div class="form-group">
+      <label>Kuvaus</label>
+      <textarea class="form-control">Jigglypuff's vocal cords can freely adjust the wavelength of its voice. This Pokémon uses this ability to sing at precisely the right wavelength to make its foes most drowsy. It can also inflate itself like a balloon.
+      </textarea>
+    </div>
+    
+    <h5>Sijainnit</h5>
+    <ul>
+      <li><strong>Helsinki:</strong> Kumpulan Kampus, Exactum <button class="btn btn-danger btn-xs">Poista</button></li>
+      <li><strong>Turku:</strong> Turun Tuomiokirkko <button class="btn btn-danger btn-xs">Poista</button></li>
+    </ul>
+    
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Tallenna</button>
+    </div>
+  </form>
+{% endblock %}

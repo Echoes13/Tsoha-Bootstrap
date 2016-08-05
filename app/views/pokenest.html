@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Aseta pesä pokémonille Jigglypuff</h1>
+
+  <form>
+    <div class="form-group">
+      <label>Kaupunki</label>
+      <input type="text" class="form-control" value="Porvoo">
+    </div>
+
+    <div class="form-group">
+      <label>Pesän sijainti</label>
+      <input type="text" class="form-control" value="Runebergin puisto">
+    </div>
+
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Tallenna</button>
+    </div>
+  </form>
+{% endblock %}

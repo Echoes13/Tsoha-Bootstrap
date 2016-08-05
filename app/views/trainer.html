@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Kouluttaja Ash</h1>
+  <ul>
+    <li><strong>Käyttäjätunnus: </strong>Ash</li>
+    <li><strong>Level: </strong>5</li>
+  </ul>
+
+  <h2>Pokémonit</h2>
+  <p>
+    <a href="#" class="btn btn-success">Lisää pokémon</a>
+  </p>
+
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>Nimi</th>
+        <th>Pokémon</th>
+        <th>CP</th>
+        <th>Tyyppi</th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <!-- Listataan pokémonit tähän -->
+      <tr>
+        <td>Pulla</td>
+        <td><a href="#">Jigglypuff</a></td>
+        <td>56</td>
+        <th>
+        <a class="btn btn-normal btn-xs" href="#">Normal</a>
+        <a class="btn btn-fairy btn-xs" href="#">Fairy</a>
+        </th>
+        <th><a class="btn btn-default btn-sm" href="#">Muokkaa</a></th>
+      </tr>
+    </tbody>
+  </table>
+{% endblock %}
