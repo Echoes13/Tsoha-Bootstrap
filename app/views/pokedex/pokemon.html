@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% import "macros/forms.html" as forms %}
+
+{% block content %}
+  <h1>#{{poke.nr}} {{poke.name}}</h1>
+  
+  <!-- Tyypit -->
+  <p>
+    <a class="btn btn-{{poke.type1}} btn-xs capitalize" href="{{base_path}}/pokedex/type/{{poke.type1}}">{{poke.type1}}</a>
+        {% if poke.type2 is not null %}
+          <a class="btn btn-{{poke.type2}} btn-xs capitalize" href="{{base_path}}/pokedex/type/{{poke.type2}}">{{poke.type2}}</a>
+        {% endif %}
+  </p>
+  
+  <!-- Kuvaus -->
+  <p>
+    {{poke.description}}
+  </p>
+
+  <!-- Sijainnit listana -->
+
+  <h4>Pesien sijainnit</h4>
+  {% if user_logged_in %}
+    <p>
+      <a href="{{base_path}}/pokedex/{{poke.nr}}/nest" class="btn btn-success btn-sm">Lisää pesä</a>
+    </p>
+  {% endif %}
+
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>Sijainti</th>
+        <th>Ilmoitettu</th>
+      </tr>
+    </thead>
+
+    <tbody>
+    {% for nest in nests %}
+      <tr>
+        <td>{{nest.location}}</td>
+        <td>{{nest.added}}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+
+  <!-- Painikkeet -->
+  {% if user_logged_in %}
+    <p>
+      {{forms.destroy_button("#{base_path}/pokedex/#{poke.nr}/destroy")}}
+      <a href="{{base_path}}/pokedex/{{poke.nr}}/edit" class="btn btn-default">Muokkaa</a>
+    </p>
+  {% endif %}
+{% endblock %}

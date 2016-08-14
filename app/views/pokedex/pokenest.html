@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+  <p>
+    <a href="{{base_path}}/pokedex/{{poke.nr}}" class="btn btn-default">Takaisin</a>
+  </p>
+
+  <h1>Aseta pesä pokémonille {{poke.name}}</h1>
+
+  {% if error %}
+    <div class="alert alert-danger">
+      <ul>
+        <li>{{error}}</li>
+      </ul>
+    </div>
+  {% endif %}
+
+  <form method="post" action="{{base_path}}/pokedex/{{poke.nr}}">
+
+    <div class="form-group">
+      <label>Kaupunki</label>
+      <input type="text" name="city" class="form-control" value="{{attributes.city}}">
+    </div>
+
+    <div class="form-group">
+      <label>Pesän tarkempi sijainti</label>
+      <textarea name="place" class="form-control">{{attributes.place}}</textarea>
+    </div>
+
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Tallenna</button>
+    </div>
+  </form>
+{% endblock %}

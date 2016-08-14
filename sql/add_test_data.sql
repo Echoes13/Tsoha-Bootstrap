@@ -1,7 +1,7 @@
 INSERT INTO Trainer (name, password, level, caught) VALUES ('Ash', 'Pikachu1', 5, 1);
 INSERT INTO Trainer (name, password, level, caught) VALUES ('Misty', 'Togepi2', 7, 3);
 
-INSERT INTO Pokemon (nr, name, type1, type2) VALUES (39, 'Jigglypuff', 'normal', 'fairy');
+INSERT INTO Pokemon (nr, name, type1, type2, description) VALUES (39, 'Jigglypuff', 'normal', 'fairy', 'Jigglypuff´s vocal cords can freely adjust the wavelength of its voice.');
 INSERT INTO Pokemon (nr, name, type1) VALUES (120, 'Staryu', 'water');
 INSERT INTO Pokemon (nr, name, type1, description) VALUES (118, 'Goldeen', 'water', 'Is called "The Queen of the Sea".');
 

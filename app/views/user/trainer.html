@@ -1,11 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
-  <h1>Kouluttaja Ash</h1>
-  <ul>
-    <li><strong>Käyttäjätunnus: </strong>Ash</li>
-    <li><strong>Level: </strong>5</li>
-  </ul>
-
+  {% if user_logged_in %}
+    <h1>Kouluttaja {{user_logged_in.name}}</h1>
+    <h4>Level: {{user_logged_in.level}}</h4>
   <h2>Pokémonit</h2>
   <p>
     <a href="#" class="btn btn-success">Lisää pokémon</a>
@@ -36,4 +33,5 @@
       </tr>
     </tbody>
   </table>
+  {% endif %}
 {% endblock %}

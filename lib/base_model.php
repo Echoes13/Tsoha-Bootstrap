@@ -21,6 +21,20 @@
 
       foreach($this->validators as $validator){
         // Kutsu validointimetodia tässä ja lisää sen palauttamat virheet errors-taulukkoon
+        $errors = array_merge($errors, $this->{$validator}());
+      }
+
+      return $errors;
+    }
+
+
+    public function validate_name_length($name, $length){
+      $errors = array();
+      if($name == '' || $name == null){
+        $errors[] = 'Nimi ei saa jäädä tyhjäksi!';
+      }
+      if(strlen($name) < $length){
+        $errors[] = 'Nimen pituuden täytyy olla vähintään ' . $length . ' merkkiä!';
       }
 
       return $errors;
