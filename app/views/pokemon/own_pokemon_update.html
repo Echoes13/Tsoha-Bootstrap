@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% import "macros/forms.html" as forms %}
+{% import "macros/lists.html" as lists %}
+
+{% block content %}
+  <h1>Muokkaa pokemonia {{attributes.nick}}</h1> 
+
+  <form method="post" action="{{base_path}}/trainer/edit/{{attributes.id}}">
+    <div class="form-group">
+      <label>Lempinimi</label>
+      <input type="text" name="nick" class="form-control" value="{{attributes.nick}}">
+    </div>
+
+    <div class="form-group">
+      <label>Pokémon</label>
+      <select name="pokemon_id" class="form-control">
+        {{lists.pokelist(pokes, attributes.pokemon_id)}}
+      </select>
+    </div>
+    
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Tallenna</button>
+      <a href="{{base_path}}/trainer" class="btn btn-default">Takaisin</a>
+      {{forms.destroy_button("#{base_path}/trainer/destroy/#{attributes.id}")}}
+    </div>
+{% endblock %}

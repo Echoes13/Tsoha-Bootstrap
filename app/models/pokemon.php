@@ -43,13 +43,18 @@ class Pokemon extends BaseModel {
 	//Pokemonin tietojen validointi
 
 	public function validate_name() {
-		return parent::validate_name_length($this->name, 4);
+		return parent::validate_name_length($this->name, 4, 10);
 	}
 
 	public function validate_nr() {
 		$errors = array();
       
-      	if($this->find($this->nr)){
+      	if($this->nr == null){
+        	$errors[] = 'Aseta Pokémonille numero!';
+        	return $errors;
+      	}
+
+      	if ($this->find($this->nr)){
         	$errors[] = 'Numeroa käyttävä Pokémon on jo olemassa!';
       	}
 
@@ -60,6 +65,15 @@ class Pokemon extends BaseModel {
 	//Pokemonin poistaminen tietokannasta
 
 	public function destroy() {
+		//Kaikki omistetut pokémonit
+		$query = DB::connection()->prepare('DELETE FROM OwnedPokemon WHERE pokemon_id =:nr');
+		$query->execute(array('nr' => $this->nr));
+
+		//Kaikki tämän pokémonin pesät
+		$query = DB::connection()->prepare('DELETE FROM Pokenest WHERE pokemon_id =:nr');
+		$query->execute(array('nr' => $this->nr));
+
+		//Lopuksi itse pokémon
 		$query = DB::connection()->prepare('DELETE FROM Pokemon WHERE nr =:nr');
 		$query->execute(array('nr' => $this->nr));
 	}
@@ -123,5 +137,14 @@ class Pokemon extends BaseModel {
 		}
 
 		return $pokemons;
+	}
+
+
+	//Antaa listan mahdollisista pokémon-tyypeistä
+
+	public static function typeList() {
+		$types = array('bug', 'dark', 'dragon', 'electric', 'fairy', 'fighting', 'fire', 'flying', 'ghost', 'grass', 'ground', 'ice', 'normal', 'poison', 'psychic', 'rock', 'steel', 'water');
+
+		return $types;
 	}
 }

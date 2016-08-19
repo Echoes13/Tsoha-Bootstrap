@@ -33,6 +33,19 @@ class Trainer extends BaseModel {
 	}
 
 
+	//Päivitetään kouluttajan level ja napattujen määrä
+
+	public function update_lc(){
+		$query = DB::connection()->prepare('UPDATE Trainer SET level =:level, caught =:caught WHERE id =:id ');
+		$query->execute(array(
+			'id' => $this->id,
+			'level' => $this->level,
+			'caught' => $this->caught
+			));
+		$query->fetch();
+	}
+
+
 	//Etsitään käyttäjiä
 
 	public static function all(){

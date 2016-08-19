@@ -21,7 +21,8 @@ class PokedexController extends BaseController {
 	//Pokémonin lisääminen
 
 	public static function create(){
-		View::make('pokedex/new.html');
+		$types = Pokemon::typeList();
+		View::make('pokedex/new.html', array('types' => $types));
 	}
 
 	public static function store(){
@@ -46,7 +47,8 @@ class PokedexController extends BaseController {
 		
 			Redirect::to('/pokedex/' . $poke->nr, array('message' => 'Pokémon on lisätty Pokédexiin!'));
 		}else{
-			View::make('pokedex/new.html', array('errors' => $errors, 'attributes' => $attributes));
+			$types = Pokemon::typeList();
+			View::make('pokedex/new.html', array('errors' => $errors, 'attributes' => $attributes, 'types' => $types));
 		}
 	}
 
@@ -56,7 +58,8 @@ class PokedexController extends BaseController {
 	public static function edit($nr){
 		$poke = Pokemon::find($nr);
 		$nests = Pokenest::findForPokemon($nr);
-		View::make('pokedex/edit.html', array('attributes' => $poke, 'nests' => $nests));
+		$types = Pokemon::typeList();
+		View::make('pokedex/edit.html', array('attributes' => $poke, 'nests' => $nests, 'types' => $types));
 	}
 
 	public static function update($nr){
@@ -71,14 +74,16 @@ class PokedexController extends BaseController {
 		);
 
 		$poke = new Pokemon($attributes);
-		$errors = $poke->errors();
+		$errors = $poke->update_errors();
 
-		if(count($errors) < 2){
+		if(count($errors) == 0){
 			$poke->update();
 		
 			Redirect::to('/pokedex/' . $poke->nr, array('message' => 'Pokémonin tietoja muokattu!'));
 		}else{
-			View::make('pokedex/edit.html', array('errors' => $errors, 'attributes' => $attributes));
+			$nests = Pokenest::findForPokemon($nr);
+			$types = Pokemon::typeList();
+			View::make('pokedex/edit.html', array('errors' => $errors, 'attributes' => $attributes, 'nests' => $nests, 'types' => $types));
 		}
 	}
 
@@ -91,7 +96,5 @@ class PokedexController extends BaseController {
 
 		Redirect::to('/pokedex', array('message' => 'Pokémonin tiedot on poistettu!'));
 	}
-
-
 
 }

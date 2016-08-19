@@ -24,12 +24,12 @@
     
     <div class="form-group">
       <label>Tyypit</label>
-      <select name='type1' class="form-control">
-        {{lists.typelist()}}
+      <select name="type1" class="form-control">
+        {{lists.typelist(types,attributes.type1)}}
       </select>
-      <select name='type2' class="form-control">
+      <select name="type2" class="form-control">
         <option></option>
-        {{lists.typelist()}}
+        {{lists.typelist(types,attributes.type2)}}
       </select>
     </div>
    

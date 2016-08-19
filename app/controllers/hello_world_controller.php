@@ -22,22 +22,6 @@
     }
 
 
-    public static function trainer(){
-      View::make('user/trainer.html');
-    }
-
-    public static function trainer_update(){
-      View::make('trainer_update.html');
-    }
-
-    public static function own_pokemon_update(){
-      View::make('own_pokemon_update.html');
-    }
-
-    public static function login(){
-      View::make('login.html');
-    }
-
     public static function register(){
       View::make('register.html');
     }

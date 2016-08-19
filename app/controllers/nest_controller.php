@@ -24,8 +24,9 @@ class NestController extends BaseController {
 
 		if(strlen($attributes['city']) < 3 ||
 			strlen($attributes['place']) < 10){
+			$poke = Pokemon::find($nr);
 
-			View::make('pokedex/pokenest.html', array('error' => 'Tarkenna pesän tietoja!', 'attributes' => $attributes));
+			View::make('pokedex/pokenest.html', array('error' => 'Tarkenna pesän tietoja!', 'attributes' => $attributes, 'poke' => $poke));
 		}else{
 			$nest->save();
 

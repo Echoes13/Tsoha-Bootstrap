@@ -1,37 +1,59 @@
 {% extends "base.html" %}
+{% import "macros/forms.html" as forms %}
+
 {% block content %}
-  {% if user_logged_in %}
-    <h1>Kouluttaja {{user_logged_in.name}}</h1>
+    <h1 href="{{base_path}}/trainer">Kouluttaja {{user_logged_in.name}}</h1>
     <h4>Level: {{user_logged_in.level}}</h4>
+    <h4>Napattuja Pokémoneja: {{user_logged_in.caught}}</h4>
+
+    <p>
+      <a href="{{base_path}}/trainer/edit" class="btn btn-default">Muokkaa kouluttajan tietoja</a>
+    </p>
+
+    {% if message %}
+      {{msg.msg_success("#{message}")}}
+    {% endif %}
+  
   <h2>Pokémonit</h2>
-  <p>
-    <a href="#" class="btn btn-success">Lisää pokémon</a>
-  </p>
+
+    <a class="btn btn-default btn-xs" href="{{base_path}}/trainer">All</a>
+    {% for type in types %}
+      <a class="btn btn-{{type}} btn-xs capitalize" href="{{base_path}}/trainer/type/{{type}}">{{type}}</a>
+    {% endfor %}
+      
 
   <table class="table table-striped table-bordered">
     <thead>
       <tr>
-        <th>Nimi</th>
+        <th>Lempinimi</th>
         <th>Pokémon</th>
-        <th>CP</th>
         <th>Tyyppi</th>
         <th></th>
       </tr>
     </thead>
 
+
     <tbody>
-      <!-- Listataan pokémonit tähän -->
+    {% for poke in pokes %}
       <tr>
-        <td>Pulla</td>
-        <td><a href="#">Jigglypuff</a></td>
-        <td>56</td>
+        <td>{{poke.nick}}</td>
+        <td><a href="{{base_path}}/pokedex/{{poke.pokemon_id}}">{{poke.name}}</a></td>
         <th>
-        <a class="btn btn-normal btn-xs" href="#">Normal</a>
-        <a class="btn btn-fairy btn-xs" href="#">Fairy</a>
+        <a class="btn btn-{{poke.type1}} btn-xs capitalize" href="{{base_path}}/trainer/type/{{poke.type1}}">{{poke.type1}}</a>
+        {% if poke.type2 is not null %}
+          <a class="btn btn-{{poke.type2}} btn-xs capitalize" href="{{base_path}}/trainer/type/{{poke.type2}}">{{poke.type2}}</a>
+        {% endif %}
         </th>
-        <th><a class="btn btn-default btn-sm" href="#">Muokkaa</a></th>
+        <th><a class="btn btn-default btn-sm" href="{{base_path}}/trainer/edit/{{poke.id}}">Muokkaa</a>
+        {{forms.destroy_button("#{base_path}/trainer/destroy/#{poke.id}", "Transfer")}}
+        </th>
       </tr>
+      {% endfor %}
     </tbody>
   </table>
-  {% endif %}
+
+
+  <p>
+    <a href="{{base_path}}/trainer/new" class="btn btn-success">Lisää pokémon</a>
+  </p>
 {% endblock %}

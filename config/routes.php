@@ -4,19 +4,19 @@
     BaseController::check_logged_in();
   }
 
-  //Sovelluksen yleisreitit
-
-  $routes->get('/', function() {
-    HelloWorldController::index();
-  });
-
   $routes->get('/hiekkalaatikko', function() {
     HelloWorldController::sandbox();
   });
 
-  $routes->get('/register', function() {
-    HelloWorldController::register();
+  //Sovelluksen yleisreitit
+
+  $routes->get('/', function() {
+    HomeController::index();
   });
+
+  //$routes->get('/register', function() {
+  //  HelloWorldController::register();
+  //});
 
   $routes->get('/login', function() {
     UserController::login();
@@ -83,15 +83,42 @@
 
   //Kouluttajaan liittyvät reitit
 
-  $routes->get('/trainer', function() {
-    HelloWorldController::trainer();
+  $routes->get('/trainer', 'check_logged_in', function() {
+    TrainerController::index();
   });
 
-  $routes->get('/trainer/1', function() {
-    HelloWorldController::trainer_update();
+  $routes->get('/trainer/edit', 'check_logged_in', function() {
+    TrainerController::edit();
   });
 
-  $routes->get('/trainer/2', function() {
-    HelloWorldController::own_pokemon_update();
+  $routes->post('/trainer/edit', function() {
+    TrainerController::update();
   });
+
+
+  //Kouluttajan pokémoneihin liittyvät reitit
+
+  $routes->get('/trainer/new', 'check_logged_in', function() {
+    PokemonController::pokemon_add();
+  });
+
+  $routes->post('/trainer/new', function() {
+    PokemonController::store();
+  });
+
+  $routes->get('/trainer/edit/:id', 'check_logged_in', function($id) {
+    PokemonController::pokemon_update($id);
+  });
+
+  $routes->post('/trainer/edit/:id', function($id) {
+    PokemonController::update($id);
+  });
+
+  $routes->post('/trainer/destroy/:id', function($id) {
+    PokemonController::destroy($id);
+  });
+  $routes->get('/trainer/type/:type', function($type) {
+    PokemonController::findType($type);
+  });
+
 

@@ -12,7 +12,9 @@
         <th>Numero</th>
         <th>Nimi</th>
         <th>Tyyppi</th>
-        <th></th>
+        {% if user_logged_in %}
+          <th></th>
+        {% endif %}
       </tr>
     </thead>
 
@@ -27,7 +29,9 @@
           <a class="btn btn-{{poke.type2}} btn-xs capitalize" href="{{base_path}}/pokedex/type/{{poke.type2}}">{{poke.type2}}</a>
         {% endif %}
         </th>
-        <th><a class="btn btn-default btn-sm" href="{{base_path}}/pokedex/{{poke.nr}}/edit">Muokkaa</a></th>
+        {% if user_logged_in %}
+          <th><a class="btn btn-default btn-sm" href="{{base_path}}/pokedex/{{poke.nr}}/edit">Muokkaa</a></th>
+        {% endif %}
       </tr>
       {% endfor %}
     </tbody>

@@ -1,20 +1,19 @@
-{% macro typelist() %}
-	<option>bug</option>
-    <option>dark</option>
-    <option>dragon</option>
-    <option>electric</option>
-    <option>fairy</option>
-    <option>fighting</option>
-    <option>fire</option>
-    <option>flying</option>
-    <option>ghost</option>
-    <option>grass</option>
-    <option>ground</option>
-    <option>ice</option>
-    <option>normal</option>
-    <option>poison</option>
-    <option>psychic</option>
-    <option>rock</option>
-    <option>steel</option>
-    <option>water</option>
+{% macro typelist(types, attrtype) %}
+	 {% for type in types %}
+          {% if type == attrtype %}
+            <option class="capitalize" value={{type}} selected>{{type}}</option>
+          {% else %}
+            <option class="capitalize" value={{type}}>{{type}}</option>
+          {% endif %}
+        {% endfor %}
+{% endmacro %}
+
+{% macro pokelist(pokes, pokemon_id) %}
+	{% for poke in pokes %}
+		{% if poke.nr == pokemon_id %}
+			<option value={{poke.nr}} selected>#{{poke.nr}} {{poke.name}}</option>
+		{% else %}
+            <option value={{poke.nr}}>#{{poke.nr}} {{poke.name}}</option>
+          {% endif %}
+        {% endfor %}
 {% endmacro %}

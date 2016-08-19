@@ -9,7 +9,7 @@
   margin: 0px auto;
 }
 
-a.capitalize {
+.capitalize {
     text-transform: capitalize;
 }
 
